@@ -1,8 +1,124 @@
 ---
 title: SignUp
-description: Ejecucion en local de la API
+description: Ejecución en local de la API
 ---
 
-import { Badge } from '@astrojs/starlight/components';
+import { Badge, Aside } from '@astrojs/starlight/components';
 
 <Badge text="POST" variant="success" size="large" />
+
+<div style="height: 20px;"/> 
+
+This endpoint allows users to register on the **Accounts** platform. The **SignUp** API makes a `POST` request to create a new user account.
+
+## URL
+
+```bash
+/api/v1/emails/signup
+```
+
+## Headers
+
+|      Key       |       Value        |
+| -------------- | ------------------ |
+| `Content-Type` | `application/json` |
+| `accept`       | `application/json` |
+
+
+## Request Body
+
+The request body must contain the following fields in JSON format:
+
+```json
+{
+  "user_name": "string",
+  "email": "user@example.com",
+  "password": "Password123!"
+}
+```
+
+|   Campo    |  Tipo  | Requerido |           Descripción            |
+| ---------- | ------ | --------- | -------------------------------- |
+| `username` | string | Not       | Unique username for the account. |
+| `password` | string | Yes       | Secure password for the account. |
+| `email`    | string | Yes       | Email for verification.          |
+
+## Application Example
+
+```bash
+curl -X POST https://api.yourdomain.com/api/v1/emails/signup \
+-H "Content-Type: application/json" \
+-H 'accept: application/json' \
+-d '{
+  "username": "exampleUser",
+  "password": "securePassword123",
+  "email": "example@example.com"
+}'
+```
+
+## Responses
+
+### 201 Created
+
+When registration is successful, the server responds with a `201 Created` code and returns a JSON with the details of the registered user.
+
+```json
+{
+  "errors": null,
+  "message": null,
+  "response_code": 201,
+  "internal_code": null,
+  "external_code": null,
+  "success": true,
+  "data": {
+    "id": "4f96aae2-2ad3-4fb3-a046-ddd2151608e8",
+    "created": "2024-11-11T06:32:47.469141",
+    "updated": "2024-11-11T06:32:47.469141",
+    "is_removed": false,
+    "email": "rafa.zamora.rals@gmail.com",
+    "user_id": "7bbef008-d69e-4a7c-8bc7-666ac79ffdd3"
+  }
+}
+```
+
+### 400 Bad Request
+
+If required fields are missing or formatted incorrectly, the response includes the `400 Bad Request` code with details of the error.
+
+```json
+{
+  "errors": {
+    "password": [
+      "Field required"
+    ]
+  },
+  "message": "Field required",
+  "response_code": 400,
+  "internal_code": null,
+  "external_code": null,
+  "success": false,
+  "data": null
+}
+```
+
+### 409 Conflict
+
+If the username or email already exists, `409 Conflict` is returned.
+
+```json
+{
+  "errors": {
+    "SAGAError": "{'UserNameUniqueError': 'There is already a registered user with the user_name: string'}"
+  },
+  "message": "{'SAGAError': \"{'UserNameUniqueError': 'There is already a registered user with the user_name: string'}\"}",
+  "response_code": 400,
+  "internal_code": 100402,
+  "external_code": 1400,
+  "success": false,
+  "data": null
+}
+```
+
+## Notes
+
+<Aside type="caution">This endpoint send code to email by activate Account.</Aside>
