@@ -62,6 +62,8 @@ export default defineConfig({
 					],
 
 				},
+				{ label: 'Security', autogenerate: { directory: 'security' } },
+				{ label: 'Extra', autogenerate: { directory: 'extra' } },
 			],
 
 		}),
