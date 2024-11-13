@@ -1,0 +1,79 @@
+---
+title: Health
+description: Ejecucion en local de la API
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+<div style="display: flex;">
+    <Badge text="GET" variant="note" size="large" style="margin-right: 20px;"/>
+    `/health`
+</div>
+
+<div style="height: 20px;"/> 
+
+Este endpoint permite verificar el estado del servicio, asegurando que está en línea y funcionando correctamente.
+
+## Endpoint
+
+- **URL**: `/health`
+- **Método**: `GET`
+- **Encabezado**: `accept: application/json`
+
+## Ejemplo de Solicitud
+
+```bash
+curl -X 'GET' \
+  'http://127.0.0.1:8000/health' \
+  -H 'accept: application/json'
+```
+
+## Respuesta
+
+La respuesta es un JSON que contiene información sobre el estado del servicio. A continuación se describe cada campo de la respuesta.
+
+### Campos de Respuesta
+
+- **errors**: `null`  
+  Indica que no se encontraron errores en la solicitud.
+
+- **message**: `"The service is online and functioning properly."`  
+  Mensaje que confirma el estado operativo del servicio.
+
+- **response_code**: `200`  
+  Código de respuesta HTTP estándar que indica éxito en la solicitud.
+
+- **internal_code**: `null`  
+  Código de error interno del sistema (si aplica). En este caso es `null` porque no hubo errores.
+
+- **external_code**: `null`  
+  Código de error externo del sistema (si aplica). También es `null` en ausencia de errores.
+
+- **success**: `true`  
+  Valor booleano que indica el éxito de la solicitud.
+
+- **data**: `null`  
+  Información adicional proporcionada en la respuesta. En este caso, es `null`.
+
+### Ejemplo de Respuesta
+
+```json
+{
+  "errors": null,
+  "message": "The service is online and functioning properly.",
+  "response_code": 200,
+  "internal_code": null,
+  "external_code": null,
+  "success": true,
+  "data": null
+}
+```
+
+## Respuestas Posibles
+
+- **200 OK**: El servicio está en línea y funciona correctamente.
+- **500 Internal Server Error**: El servicio encontró un error inesperado.
+
+---
+
+Este endpoint es útil para monitorear la salud y disponibilidad del servicio de manera rápida.

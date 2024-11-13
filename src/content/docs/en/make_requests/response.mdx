@@ -1,0 +1,63 @@
+---
+title: Response Body
+description: Ejecucion en local de la API
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+
+
+```json
+{
+  "errors": null,
+  "message": null,
+  "response_code": 200,
+  "internal_code": null,
+  "external_code": null,
+  "success": true,
+  "data": {
+    "next": null,
+    "prev": null,
+    "count": 0,
+    "data": []
+  }
+}
+
+```
+
+### Simple Response
+```json
+{
+  "data": {},
+  "details": {
+    "errors": null,
+    "message": null,
+    "response_code": 200,
+    "internal_code": null,
+    "external_code": null,
+  },
+  "success": true,
+}
+
+```
+
+### Pagination response
+```json
+{
+  "data": {
+    "next": null,
+    "prev": null,
+    "count": 0,
+    "results": []
+  },
+  "details": {
+    "errors": null,
+    "message": null,
+    "response_code": 200,
+    "internal_code": null,
+    "external_code": null,
+  },
+  "success": true,
+}
+
+```

@@ -5,17 +5,20 @@ description: Ejecucion en local de la API
 
 import { Badge } from '@astrojs/starlight/components';
 
-<Badge text="POST" variant="success" size="large" />
+<div style="display: flex; align-items: center; margin: auto;">
+  <div style="margin-right: 20px;">
+    <Badge text="POST" variant="success" size="large" />
+  </div>
+  <div style="margin: 0;">
+    ```
+    /api/v1/emails/activate
+    ```
+  </div>
+</div>
 
-<div style="height: 20px;"/> 
 
 This endpoint allows users to activate their accounts on the **Accounts** platform using an activation code and their email. The **Activate Account** API makes a `POST` request to activate the user's account.
 
-## URL
-
-```
-/api/v1/emails/activate
-```
 
 ## Headers
 

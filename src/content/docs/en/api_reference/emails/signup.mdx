@@ -5,9 +5,16 @@ description: Ejecución en local de la API
 
 import { Badge, Aside } from '@astrojs/starlight/components';
 
-<Badge text="POST" variant="success" size="large" />
-
-<div style="height: 20px;"/> 
+<div style="display: flex; align-items: center; margin: auto;">
+  <div style="margin-right: 20px;">
+    <Badge text="POST" variant="success" size="large" />
+  </div>
+  <div style="margin: 0;">
+    ```
+    /api/v1/emails/signup
+    ```
+  </div>
+</div>
 
 This endpoint allows users to register on the **Accounts** platform. The **SignUp** API makes a `POST` request to create a new user account.
 

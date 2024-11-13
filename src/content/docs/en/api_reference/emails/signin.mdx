@@ -1,13 +1,20 @@
 ---
-title: SignUp & SignIn Endpoints
+title: SignIn
 description: Ejecución en local de la API para registro e inicio de sesión
 ---
 
 import { Badge } from '@astrojs/starlight/components';
 
-<Badge text="POST" variant="success" size="large" />
-
-<div style="height: 20px;"/> 
+<div style="display: flex; align-items: center; margin: auto;">
+  <div style="margin-right: 20px;">
+    <Badge text="POST" variant="success" size="large" />
+  </div>
+  <div style="margin: 0;">
+    ```
+    /api/v1/emails/signin
+    ```
+  </div>
+</div>
 
 This endpoint allows users to log into the **Accounts** platform using their email as the authentication method. The **SignIn** API makes a `POST` request to authenticate the user.
 
