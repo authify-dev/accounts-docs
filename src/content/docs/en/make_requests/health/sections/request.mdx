@@ -1,0 +1,105 @@
+---
+title: Request Example
+description: Ejecucion en local de la API
+---
+
+import EndpointLayout from "@layouts/EndpointLayout.astro";
+import { ArgumentEntity } from "src/domain/entities/ArgumentEntity";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+
+
+##### Ejemplo de Solicitud
+
+   <Tabs>
+  <TabItem label="curl">
+  ```bash
+  curl -X 'GET' \
+    'http://127.0.0.1:8000/health' \
+    -H 'accept: application/json'
+   ```
+   </TabItem>
+  <TabItem label="axios (JS)">
+  ```js
+  const axios = require('axios');
+
+axios.get('http://127.0.0.1:8000/health', {
+headers: {
+'accept': 'application/json',
+},
+})
+.then(response => {
+console.log(response.data);
+})
+.catch(error => {
+console.error(error);
+});
+
+````
+</TabItem>
+
+  <TabItem label="request (Python)">
+```python
+import requests
+url = "http://127.0.0.1:8000/health"
+headers = {
+    "accept": "application/json"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+
+````
+
+  </TabItem>
+
+    <TabItem label="Dart">
+
+```js
+import 'package:http/http.dart' as http;
+
+void fetchHealth() async {
+  final url = Uri.parse('http://127.0.0.1:8000/health');
+  final response = await http.get(url, headers: {
+    'accept': 'application/json',
+  });
+
+  if (response.statusCode == 200) {
+    print(response.body);
+  } else {
+    print('Error: ${response.statusCode}');
+  }
+}
+
+```
+
+  </TabItem>
+
+    <TabItem label="Java">
+
+```java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+
+public class Main {
+    public static void main(String[] args) {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("http://127.0.0.1:8000/health"))
+            .header("accept", "application/json")
+            .GET()
+            .build();
+
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+            .thenApply(HttpResponse::body)
+            .thenAccept(System.out::println)
+            .join();
+    }
+}
+
+```
+
+  </TabItem>
+</Tabs>

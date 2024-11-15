@@ -2,6 +2,15 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     // Enable strict mode. This enables a few options at a time, see https://www.typescriptlang.org/tsconfig#strict for a list.
-    "strict": false
+    "strict": false,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ]
+    }
   }
 }

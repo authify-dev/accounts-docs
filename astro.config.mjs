@@ -7,6 +7,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+
     integrations: [starlight({
         title: 'Accounts',
         social: {
@@ -20,10 +21,12 @@ export default defineConfig({
             es: {
                 label: 'Español',
             },
+
+
         },
+
         components: {
             Header: "./src/components/CustomHeader.astro",
-
         },
         sidebar: [
             {
@@ -90,8 +93,5 @@ export default defineConfig({
 
         ],
 
-		}), react(), tailwind()],
-    redirects: {
-        "/": "/en"
-    }
+    }), react(), tailwind()],
 });
