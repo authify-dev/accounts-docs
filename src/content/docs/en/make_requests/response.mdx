@@ -1,63 +1,23 @@
 ---
-title: Response Body
+title: Response
 description: Ejecucion en local de la API
 ---
 
 import { Badge } from '@astrojs/starlight/components';
 
 
-
+### Example of Response 
 ```json
-{
-  "errors": null,
-  "message": null,
-  "response_code": 200,
-  "internal_code": null,
-  "external_code": null,
-  "success": true,
-  "data": {
-    "next": null,
-    "prev": null,
-    "count": 0,
-    "data": []
+
+  {
+    "data": {...}         // Data of response
+    "success": true,      // Flag indicating whether the request was resolved successfully
+    "details": {          // response metadata
+      "errors": [],       // List of Errors
+      "message": "...",   // Simple Message of response
+      "code": "1200",     // Code App of response
+      "trace_id": "...",  // UUID by trace the operation
+      "caller_id": "..."  // ID of App Caller
+    }
   }
-}
-
-```
-
-### Simple Response
-```json
-{
-  "data": {},
-  "details": {
-    "errors": null,
-    "message": null,
-    "response_code": 200,
-    "internal_code": null,
-    "external_code": null,
-  },
-  "success": true,
-}
-
-```
-
-### Pagination response
-```json
-{
-  "data": {
-    "next": null,
-    "prev": null,
-    "count": 0,
-    "results": []
-  },
-  "details": {
-    "errors": null,
-    "message": null,
-    "response_code": 200,
-    "internal_code": null,
-    "external_code": null,
-  },
-  "success": true,
-}
-
 ```
