@@ -38,9 +38,6 @@ importers:
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
-      astro:
-        specifier: ^4.15.3
-        version: 4.16.12(rollup@4.26.0)(typescript@5.6.3)
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -68,6 +65,10 @@ importers:
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
+    devDependencies:
+      astro:
+        specifier: ^4.16.12
+        version: 4.16.12(rollup@4.26.0)(typescript@5.6.3)
 
 packages:
 
