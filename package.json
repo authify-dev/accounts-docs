@@ -20,7 +20,6 @@
     "@next/mdx": "^15.0.3",
     "@nextui-org/react": "^2.4.8",
     "@types/mdx": "^2.0.13",
-    "astro": "^4.15.3",
     "autoprefixer": "^10.4.20",
     "framer-motion": "^11.11.13",
     "lucide-react": "^0.456.0",
@@ -30,5 +29,8 @@
     "sharp": "^0.32.5",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "astro": "^4.16.12"
   }
 }
