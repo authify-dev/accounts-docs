@@ -1,0 +1,87 @@
+---
+title: Docker
+description: Run the App using Docker image
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+<Steps>
+
+1. Create `compose.yml`:
+
+   ```yml
+    services:
+        app:
+            image: authifytech/accounts
+            environment:
+            - ENVIRONMENT=docker # Set the environment
+            env_file:
+            - ./.envs/.env.docker # Inject the ENVs
+            ports:
+            - 9000:9000           # Expose the port of API
+   ```
+
+2. Create RSA keys for *PRIVATE_KEY_JWT* and *PUBLIC_KEY_JWT*
+
+   ```bash
+   # Private
+   openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+
+   # Public
+   openssl rsa -pubout -in private_key.pem -out public_key.pem
+   ```
+
+3. Create the ENVIRONMENTS files
+
+   ```bash
+
+   # .envs/.env.docker 
+   mkdir .envs
+
+   touch .envs/.env.docker 
+
+   # Copy .env.example
+   ```
+   
+
+4. Modification of the ENVIRONMENT
+
+   The following ENVIRONMENTS in the .envs/.env.local file must be modified
+
+   ```bash 
+   # ------------------------------------------------------------
+   # Email Settings
+   # ------------------------------------------------------------
+
+   # @required zoho or email
+   EMAIL_CLIENT=zoho
+
+   # @required
+   EMAIL_SENDER=example@example.tech
+
+   # @required
+   EMAIL_SENDER_PASSWORD=secret
+   ```
+
+   ```bash 
+   # ------------------------------------------------------------
+   # JWT
+   # ------------------------------------------------------------
+
+   # @required
+   PRIVATE_KEY_JWT=
+
+   # @required
+   PUBLIC_KEY_JWT=
+   ```
+
+   <Aside type="caution">KEYs must be copied completely.</Aside>
+
+5. Run the API
+
+   ```bash
+   docker compose up app -d
+   ```
+
+
+</Steps>
