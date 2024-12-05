@@ -24,14 +24,26 @@ export default defineConfig({
 
 
         },
-
         components: {
             Header: "./src/components/CustomHeader.astro",
         },
         sidebar: [
             {
                 label: 'Get Started',
-                autogenerate: { directory: 'get_started' },
+                items: [
+                    {
+                        label: "Local Build",
+                        slug: "get_started/local"
+                    },
+                    {
+                        label: "Docker",
+                        link: "get_started/docker"
+                    },
+                    {
+                        label: "Settings",
+                        slug: "get_started/settings"
+                    },
+                ]
             },
             {
                 label: 'Make requets',
@@ -43,10 +55,6 @@ export default defineConfig({
                     {
                         label: "Codes",
                         link: "make_requests/codes"
-                    },
-                    {
-                        label: "Requets",
-                        slug: "make_requests/request"
                     },
                     {
                         label: "Response",
