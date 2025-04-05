@@ -70,6 +70,10 @@ export default defineConfig({
                         label: 'Emails',
                         items: [
                             {
+                                label: "Diagram",
+                                slug: 'api_reference/emails/diagram',
+                            },
+                            {
                                 label: "SignUp",
                                 slug: 'api_reference/emails/signup',
                             },
